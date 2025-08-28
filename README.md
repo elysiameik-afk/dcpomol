@@ -5,7 +5,7 @@
 
 ## Overview  
 DCPO is a reinforcement‑learning‑from‑verifiable‑rewards (RLVR) framework that dramatically improves data‑utilisation and training speed for large language models (LLMs) on reasoning‑heavy tasks.  
-All experiments from the paper *“DCPO: Dynamic‑Clipping Policy Optimization for Efficient Reinforcement Learning”* can be reproduced with this repo.
+All experiments from the paper *“DCPO: Dynamic Clipping Policy Optimization”* can be reproduced with this repo.
 
 ---  
 
