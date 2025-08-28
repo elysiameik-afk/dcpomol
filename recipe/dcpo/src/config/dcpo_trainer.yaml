@@ -1,0 +1,9 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+    - file://recipe/dcpo/src/config
+
+defaults:
+  - ppo_trainer
+  - dcpo_trainer_old
+  - _self_
