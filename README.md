@@ -1,11 +1,6 @@
 
-<<<<<<< Updated upstream
-# DCPO: Dynamic‑Clipping Policy Optimization for Efficient Reinforcement Learning
-=======
 # DCPO: Dynamic Clipping Policy Optimization
->>>>>>> Stashed changes
 **GitHub repository:** https://github.com/Yshihui/DCPO 
-
 ---  
 
 ## Overview  
