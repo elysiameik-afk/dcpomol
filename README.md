@@ -156,7 +156,7 @@ Pre‑trained Qwen‑Math checkpoints or others are provided under their origina
 
 ---
 
-## Citation
+<!-- ## Citation
 
 If you use DCPO in your research, please cite the original work:
 
@@ -169,7 +169,7 @@ If you use DCPO in your research, please cite the original work:
   url     = {https://github.com/your-org/DCPO},
   note    = {Open‑source implementation},
 }
-```
+``` -->
 
 ---
 
