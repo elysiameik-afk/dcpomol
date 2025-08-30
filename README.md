@@ -1,6 +1,6 @@
 
 # DCPO: Dynamic Clipping Policy Optimization
-**GitHub repository:** https://github.com/Yshihui/DCPO 
+**GitHub repository:** https://github.com/lime-RL/DCPO
 ---  
 
 ## Overview  
