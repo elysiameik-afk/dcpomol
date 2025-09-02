@@ -30,8 +30,8 @@ TRAIN_ROOT=$ROOT/data/RL
 export CODE_PATH=$ROOT/code
 
 ##qwen
-data_root=/qwen
-train_files="$data_root/dapo17k.parquet,$data_root/urz_math_lvl3to5.parquet,"
+data_root=./data
+train_files="$data_root/train.parquet,"
 val_files="$data_root/aime_2024.parquet,$data_root/aime_2025.parquet,$data_root/math500.parquet,$data_root/amc2023.parquet,"
 
 train_files="[${train_files::-1}]"

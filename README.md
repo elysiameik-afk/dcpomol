@@ -20,6 +20,8 @@ All experiments from the paper *“DCPO: Dynamic Clipping Policy Optimization”
 
 ---  
 
+## main result
+
 ## Code base & Docker  
 
 * **Code base** – DCPO extends the open‑source **Verl** codebase (https://github.com/volcengine/verl).  
@@ -31,7 +33,7 @@ All experiments from the paper *“DCPO: Dynamic Clipping Policy Optimization”
 docker pull verlai/verl:app-verl0.4-sglang0.4.6.post5-vllm0.8.5-mcore0.12.2
 ```
 
-## the stype of sample in  data parquet
+## the example of sample in  data parquet
 ```
 [
     {
@@ -41,21 +43,21 @@ docker pull verlai/verl:app-verl0.4-sglang0.4.6.post5-vllm0.8.5-mcore0.12.2
             {
                 "content": "Please reason step by step, and put your final answer within \\boxed{}.",
                 "role": "system"
-            },
+            }, # the qwen template
             {
-                "content": "There exist real numbers $x$ and $y$, both greater than 1, such that $\\log_x\\left(y^x\\right)=\\log_y\\left(x^{4y}\\right)=10$. Find $xy$.",
+                "content": "There exist real numbers $x$ and $y$, both greater than 1, such that $\\log_x\\left(y^x\\right)=\\log_y\\left(x^{4y}\\right)=10$. Find $xy$.", # question
                 "role": "user"
             }
         ],
         "ability": "MATH",
         "reward_model":
         {
-            "ground_truth": "25", # 
-            "style": "rule-lighteval/MATH_v2"
+            "ground_truth": "25", # the label for the question 
+            "style": "rule-lighteval/MATH_v2" # option
         },
         "extra_info":
         {
-            "index": 24,
+            "index": 24, # must have and be different from each other 
             "raw_problem": "There exist real numbers $x$ and $y$, both greater than 1, such that $\\log_x\\left(y^x\\right)=\\log_y\\left(x^{4y}\\right)=10$. Find $xy$.",
             "split": null
         }
@@ -81,6 +83,7 @@ pip install -r requirements.txt
 
 ```bash
 # checkpoint (e.g. Qwen2.5‑Math‑7B) will be fetched from HuggingFace automatically
+# change your data to the template and modify the path on *.sh
 bash ./recipe/dcpo/run_dcpo.sh   # DCPO
 bash ./recipe/dcpo/run_grpo.sh   # GRPO baseline
 bash ./recipe/dcpo/run_dapo.sh   # DAPO baseline
