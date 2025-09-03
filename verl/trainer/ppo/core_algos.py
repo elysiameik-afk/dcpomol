@@ -392,8 +392,8 @@ def compute_dcpo_outcome_advantage(
     old_times,
     old_mean,
     old_std,
-    epsilon: float = 1e-6,
     user_old_mean_ratio: float = 1.0,
+    norm_adv_by_std_in_grpo: bool = True,
 ):
     """
     Compute advantage for GRPO, operating only on Outcome reward
@@ -449,11 +449,16 @@ def compute_dcpo_outcome_advantage(
             idx = index[i]
 
             scoresi_new = torch.tensor(0.0)
+
             if id2std_new[idx] > 0:
-                scoresi_new = (scores[i] - id2mean_new[idx]) / (id2std_new[idx])
+                scoresi_new = scores[i] - id2mean_new[idx]
+                if norm_adv_by_std_in_grpo:
+                    scoresi_new = scoresi_new / (id2std_new[idx])
             scoresi_old = torch.tensor(0.0)
             if id2std[idx] > 0:
-                scoresi_old = (scores[i] - id2mean[idx]) / (id2std[idx])
+                scoresi_old = scores[i] - id2mean[idx]
+                if norm_adv_by_std_in_grpo:
+                    scoresi_old = scoresi_old / (id2std[idx])
             # scores[i] = 1 / (id2times[idx] + 1) * scoresi_old + (1 - 1 / (id2times[idx] + 1)) * scoresi_new
             scoresi1 = 1 / (id2times[idx] + 1) * scoresi_old + (1 - 1 / (id2times[idx] + 1)) * scoresi_new
             scoresi2 = 1 / (id2times[idx] + 1) * scoresi_new + (1 - 1 / (id2times[idx] + 1)) * scoresi_old

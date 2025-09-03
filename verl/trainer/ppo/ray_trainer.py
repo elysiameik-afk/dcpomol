@@ -278,6 +278,7 @@ def compute_advantage(
             old_std=data.non_tensor_batch["std"],
             old_times=data.non_tensor_batch["times"],
             user_old_mean_ratio=user_old_mean_ratio,
+            norm_adv_by_std_in_grpo=norm_adv_by_std_in_grpo,
         )
         data.batch["advantages"] = dcpo["advantages"]
         data.batch["returns"] = dcpo["returns"]
