@@ -1,7 +1,7 @@
 
 # DCPO: Dynamic Clipping Policy Optimization
 
-📝 [Paper@arXiv](https://arxiv.org/abs/2509.02333) | 🤗 [Datasets&Models@HF](https://huggingface.co/papers/2509.02333) | 🐱 [Code@GitHub](https://github.com/lime-RL/DCPO)
+📝 [Paper@arXiv](https://arxiv.org/abs/2509.02333) | 🤗 [HuggingFace](https://huggingface.co/papers/2509.02333) | 🐱 [GitHub](https://github.com/lime-RL/DCPO)
 
 ---  
 
