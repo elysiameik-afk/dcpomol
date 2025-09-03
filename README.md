@@ -1,6 +1,8 @@
 
 # DCPO: Dynamic Clipping Policy Optimization
-**GitHub repository:** https://github.com/lime-RL/DCPO
+
+📝 [Paper@arXiv](https://arxiv.org/abs/2509.02333) | 🤗 [Datasets&Models@HF](https://huggingface.co/papers/2509.02333) | 🐱 [Code@GitHub](https://github.com/lime-RL/DCPO)
+
 ---  
 
 ## Overview  
@@ -159,20 +161,21 @@ Pre‑trained Qwen‑Math checkpoints or others are provided under their origina
 
 ---
 
-<!-- ## Citation
+## Citation
 
 If you use DCPO in your research, please cite the original work:
 
 ```bibtex
-@inproceedings{yourname2025dcpo,
-  title   = {DCPO: Dynamic‑Clipping Policy Optimization for Efficient Reinforcement Learning},
-  author  = {Shihui Yang, },
-  organization = {Baichuan inc.},
-  year    = {2025},
-  url     = {https://github.com/your-org/DCPO},
-  note    = {Open‑source implementation},
+@misc{yang2025dcpodynamicclippingpolicy,
+      title={DCPO: Dynamic Clipping Policy Optimization}, 
+      author={Shihui Yang and Chengfeng Dou and Peidong Guo and Kai Lu and Qiang Ju and Fei Deng and Rihui Xin},
+      year={2025},
+      eprint={2509.02333},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.02333}, 
 }
-``` -->
+```
 
 ---
 
