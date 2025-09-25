@@ -261,7 +261,7 @@ def _strip_string(string):
             new_string += new_substr
         return new_string
 
-    # ysh 括号
+
     def _fix_bracket(string):
         new_string = ""
         while True:

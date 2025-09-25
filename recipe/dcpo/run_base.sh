@@ -242,7 +242,7 @@ if [ ${RANK} == 0 ]; then
     reward_model.use_old_mean.coeff=${USE_OLD_MEAN_COEFF:-1} \
     track_data_path=${CHECKPOINT_SAVE}/train_sample \
     tensorboard_log_dir="${CHECKPOINT_SAVE}/runs" \
-    trainer.logger=['wandb','console','tensorboard'] \
+    trainer.logger=['console','tensorboard'] \
     trainer.project_name="${project_name}" \
     trainer.experiment_name="${exp_name}" \
     trainer.n_gpus_per_node=${N_GPUS_PER_NODE:-8} \

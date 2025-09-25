@@ -5,7 +5,10 @@ pip install latex2sympy2_extended
 pip install math-verify
 pip install tensorboard
 
-
+export WORLD_SIZE=${WORLD_SIZE:-1}
+export RANK=${RANK:-0}
+export CHECKPOINT_SAVE=${CHECKPOINT_SAVE:-"/tmp/"}
+export CHECKPOINT_LOAD=${CHECKPOINT_LOAD:-/checkpoint_load}
 ray stop --force
 ps -ef | grep "python" | awk '{print $2}' | xargs kill -9
 # nccl=eth0
@@ -20,14 +23,10 @@ export WANDB_API_KEY=$wandb_key
 # tensorboard
 export TENSORBOARD_DIR=${CHECKPOINT_SAVE}/runs
 
-export ROOT=/yangshihui
+# pre-train model path
 export MODEL_PATH=$CHECKPOINT_LOAD/small_models/Qwen2.5-Math-7B
-export MODEL_PATH=$CHECKPOINT_LOAD/small_models/Qwen2.5-Math-7B
-export MODEL_PATH=$CHECKPOINT_LOAD/small_models/Qwen3-8B-Base
 
-TRAIN_ROOT=$ROOT/data/RL
-# MODEL_PATH=$TRAIN_DATA/Qwen2d5-32B/Qwen2d5-32B
-export CODE_PATH=$ROOT/code
+
 
 ##qwen
 data_root=./data
@@ -101,13 +100,8 @@ export SAVE_FREQ=50
 export TEST_FREQ=5
 export MAX_NUM_GEN_BATCHES=$(($TRAIN_PROMPT_BSZ / $GEN_PROMPT_BSZ * 100))
 
-if [ $RANK == 0 ]; then
-    cp -rf ${CODE_PATH}/dcpo-verl ${CHECKPOINT_SAVE}/
-    cp $0 ${CHECKPOINT_SAVE}/
-fi
 
 while true; do
-    cd ${CHECKPOINT_SAVE}/dcpo-verl
 
     while true; do
         touch ${CHECKPOINT_SAVE}/_worker_${RANK}_ready

@@ -214,7 +214,7 @@ class FSDPActorConfig(ActorConfig):
     entropy_checkpointing: bool = False
     fsdp_config: FSDPEngineConfig = field(default_factory=FSDPEngineConfig)
     use_remove_padding: bool = False
-
+    loss_normal_type: str = "micro_batch"
     def __post_init__(self):
         """Validate FSDP actor configuration parameters."""
         super().__post_init__()

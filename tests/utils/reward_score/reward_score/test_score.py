@@ -2,7 +2,6 @@ import sys
 import json
 from glob import glob
 
-sys.path.append("/yangshihui/code/verl_qwen3")
 from verl.utils.reward_score import default_compute_score
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
