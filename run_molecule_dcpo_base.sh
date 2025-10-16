@@ -223,6 +223,9 @@ if [ ${RANK} == 0 ]; then
     actor_rollout_ref.actor.ppo_mini_batch_size=${train_prompt_mini_bsz} \
     actor_rollout_ref.actor.fsdp_config.param_offload=${offload} \
     actor_rollout_ref.actor.fsdp_config.optimizer_offload=${offload} \
+    actor_rollout_ref.actor.fsdp_config.mixed_precision.param_dtype=bf16 \
+    actor_rollout_ref.actor.fsdp_config.mixed_precision.reduce_dtype=fp32 \
+    actor_rollout_ref.actor.fsdp_config.mixed_precision.buffer_dtype=fp32 \
     actor_rollout_ref.actor.entropy_coeff=0 \
     actor_rollout_ref.actor.grad_clip=1.0 \
     actor_rollout_ref.actor.policy_loss.loss_mode=${LOSS_MODE:-"dcpo"} \
