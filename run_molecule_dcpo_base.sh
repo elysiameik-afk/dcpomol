@@ -263,6 +263,6 @@ if [ ${RANK} == 0 ]; then
   exit ${exit_code}
 else
   sleep 15s
-  ray start --address ${MASTER_ADDR}:${RAY_MASTER_PORT} --num-gpus 8 --block ${ray_start_args[@]}
+  ray start --address ${MASTER_ADDR}:${RAY_MASTER_PORT} --num-gpus ${N_GPUS_PER_NODE:-1} --block ${ray_start_args[@]}
 fi
 

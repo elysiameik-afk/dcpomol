@@ -124,6 +124,10 @@ export OVERLONG_BUFFER_ERROR_PENALTY=1.0
 export PROJECT_NAME="molecule_generation"
 export EXP_NAME="dcpo_egfr_${WORLD_SIZE}gpu"
 
+# GPU Configuration
+# ============================================================================
+export N_GPUS_PER_NODE=1  # Set to your actual GPU count per node
+
 # ============================================================================
 # Training Loop Configuration
 # ============================================================================
