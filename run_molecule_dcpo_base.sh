@@ -231,8 +231,8 @@ if [ ${RANK} == 0 ]; then
     actor_rollout_ref.rollout.gpu_memory_utilization=0.75 \
     actor_rollout_ref.rollout.tensor_model_parallel_size=${gen_tp} \
     actor_rollout_ref.rollout.enable_chunked_prefill=True \
-    actor_rollout_ref.rollout.disable_sliding_window=True \
-    actor_rollout_ref.rollout.enable_prefix_caching=False \
+    +actor_rollout_ref.rollout.disable_sliding_window=True \
+    +actor_rollout_ref.rollout.enable_prefix_caching=False \
     actor_rollout_ref.rollout.max_num_batched_tokens=$((max_prompt_length + max_response_length)) \
     actor_rollout_ref.rollout.temperature=${temperature} \
     actor_rollout_ref.rollout.top_p=${top_p} \
