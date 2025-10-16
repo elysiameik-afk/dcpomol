@@ -18,7 +18,7 @@ export CHECKPOINT_LOAD=${CHECKPOINT_LOAD:-"/root/autodl-tmp"}
 
 # Clean up previous run
 ray stop --force
-ps -ef | grep "python" | awk '{print $2}' | xargs kill -9
+# Note: Removed "kill all python" command to avoid killing terminal/jupyter/vscode processes
 
 for ((x = 0; x < $WORLD_SIZE; x++)); do
     rm -rf ${CHECKPOINT_SAVE}/_worker_${x}_ready

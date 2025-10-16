@@ -13,6 +13,9 @@ export NCCL_IB_SL=5
 export NCCL_IB_GID_INDEX=3
 export TORCH_DISTRIBUTED_DEBUG=INFO
 
+# Clean up any stale Ray processes (but don't kill all python processes)
+ray stop --force 2>/dev/null || true
+
 # ============================================================================
 # vLLM Configuration
 # ============================================================================
