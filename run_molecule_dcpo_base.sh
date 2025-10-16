@@ -212,6 +212,10 @@ if [ ${RANK} == 0 ]; then
     actor_rollout_ref.model.path="${MODEL_PATH}" \
     +actor_rollout_ref.model.override_config.attention_dropout=0. \
     actor_rollout_ref.model.enable_gradient_checkpointing=True \
+    actor_rollout_ref.model.lora_rank=32 \
+    actor_rollout_ref.model.lora_alpha=16 \
+    actor_rollout_ref.model.target_modules=all-linear \
+    actor_rollout_ref.rollout.load_format=safetensors \
     actor_rollout_ref.actor.optim.lr=1e-6 \
     actor_rollout_ref.actor.optim.lr_warmup_steps=10 \
     actor_rollout_ref.actor.optim.weight_decay=0.1 \

@@ -66,22 +66,22 @@ export NNODES=${WORLD_SIZE:-1}
 # ============================================================================
 # Training Hyperparameters
 # ============================================================================
-# Batch sizes
-export TRAIN_PROMPT_BSZ=130  # Use all 130 training data per batch
-export GEN_PROMPT_BSZ=130    # Generate for all prompts at once
-export N_RESP_PER_PROMPT=8   # Generate 8 responses per prompt
+# Batch sizes (can use larger batch with LoRA)
+export TRAIN_PROMPT_BSZ=26   # Using LoRA allows larger batch
+export GEN_PROMPT_BSZ=26     
+export N_RESP_PER_PROMPT=8   # Can restore to 8 with LoRA
 
-# Response length (SMILES are much shorter than math solutions)
-export MAX_PROMPT_LENGTH=512     # Prompts are shorter for molecule generation
-export MAX_RESPONSE_LENGTH=256   # SMILES strings are typically 50-200 characters
+# Response length (can be larger with LoRA)
+export MAX_PROMPT_LENGTH=512     # Restored with LoRA
+export MAX_RESPONSE_LENGTH=256   # Restored with LoRA
 export ACTOR_PPO_MAX_TOKEN_LEN=768
 export INFER_PPO_MAX_TOKEN_LEN=768
 
 # Sequence parallel (set to 1 for smaller models)
 export SP_SIZE=1
 
-# Mini batch size
-export TRAIN_PROMPT_MINI_BSZ=$(($WORLD_SIZE * 8))
+# Mini batch size (can be larger with LoRA)
+export TRAIN_PROMPT_MINI_BSZ=8
 
 # Validation
 export VAL_BEFORE_TRAIN=True
