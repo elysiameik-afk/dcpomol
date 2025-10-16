@@ -243,8 +243,7 @@ if [ ${RANK} == 0 ]; then
     reward_model.overlong_buffer.error_penalty=${overlong_buffer_error_penalty} \
     reward_model.overlong_buffer.penalty_factor=${overlong_penalty_factor} \
     track_data_path=${CHECKPOINT_SAVE}/train_sample \
-    tensorboard_log_dir="${CHECKPOINT_SAVE}/runs" \
-    trainer.logger=['console','tensorboard'] \
+    trainer.logger=['console','wandb'] \
     trainer.project_name="${project_name}" \
     trainer.experiment_name="${exp_name}" \
     trainer.n_gpus_per_node=${N_GPUS_PER_NODE:-8} \

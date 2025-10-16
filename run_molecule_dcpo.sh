@@ -6,7 +6,7 @@ set -x
 
 # Install dependencies for molecule generation
 pip install rdkit
-pip install tensorboard
+pip install wandb
 
 # ============================================================================
 # Basic Configuration
@@ -25,15 +25,11 @@ for ((x = 0; x < $WORLD_SIZE; x++)); do
 done
 
 # ============================================================================
-# Wandb Configuration (Optional)
+# Wandb Configuration
 # ============================================================================
-wandb_key=""
-export WANDB_API_KEY=$wandb_key
-
-# ============================================================================
-# Tensorboard Configuration
-# ============================================================================
-export TENSORBOARD_DIR=${CHECKPOINT_SAVE}/runs
+# Wandb API key should be already configured in your environment
+# If not, set it here or run: wandb login
+# export WANDB_API_KEY="your_key_here"
 
 # ============================================================================
 # Model and Tokenizer Paths

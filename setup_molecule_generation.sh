@@ -33,8 +33,8 @@ echo "Step 2: Installing dependencies..."
 echo "  Installing RDKit (for molecular property calculations)..."
 pip install rdkit -q
 
-echo "  Installing TensorBoard (for training monitoring)..."
-pip install tensorboard -q
+echo "  Installing Wandb (for training monitoring)..."
+pip install wandb -q
 
 echo "  ✅ Dependencies installed"
 
@@ -133,13 +133,16 @@ echo "✅ Setup Complete!"
 echo "============================================================================"
 echo
 echo "Next steps:"
-echo "  1. Start training:"
+echo "  1. Login to Wandb (if not already):"
+echo "     wandb login"
+echo
+echo "  2. Start training:"
 echo "     bash run_molecule_dcpo.sh"
 echo
-echo "  2. Monitor training:"
-echo "     tensorboard --logdir ./ckpts/molecule_dcpo/runs"
+echo "  3. Monitor training:"
+echo "     Visit https://wandb.ai to view your experiments"
 echo
-echo "  3. View logs:"
+echo "  4. View logs:"
 echo "     tail -f ./ckpts/molecule_dcpo/run.log"
 echo
 echo "Configuration:"

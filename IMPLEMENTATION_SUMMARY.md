@@ -64,7 +64,7 @@ Implemented comprehensive reward function with 9 indicators:
 - ✅ Single/multi-GPU support
 - ✅ Dynamic adaptive clipping
 - ✅ Smooth advantage standardization
-- ✅ Tensorboard logging
+- ✅ Wandb logging
 - ✅ Automatic checkpointing
 - ✅ Validation during training
 
@@ -155,28 +155,33 @@ Added domain knowledge:
 # 1. Setup environment and generate data
 bash setup_molecule_generation.sh
 
-# 2. Start training
+# 2. Login to Wandb (first time only)
+wandb login
+
+# 3. Start training
 bash run_molecule_dcpo.sh
 
-# 3. Monitor (in another terminal)
-tensorboard --logdir ./ckpts/molecule_dcpo/runs
+# 4. Monitor - Visit https://wandb.ai to view your experiments
 ```
 
 ### Manual Step-by-Step
 ```bash
 # 1. Install dependencies
-pip install rdkit tensorboard
+pip install rdkit wandb
 
-# 2. Setup tokenizer (if not done)
+# 2. Login to Wandb
+wandb login
+
+# 3. Setup tokenizer (if not done)
 python add_chat_template.py
 
-# 3. Generate dataset
+# 4. Generate dataset
 python generate_rl_dataset.py
 
-# 4. Test reward function
+# 5. Test reward function
 python test_reward_function.py
 
-# 5. Start training
+# 6. Start training
 bash run_molecule_dcpo.sh
 ```
 
@@ -221,6 +226,7 @@ DCPO/
 
 Before training, verify:
 - [ ] RDKit installed: `python -c "from rdkit import Chem; print('OK')"`
+- [ ] Wandb logged in: `wandb login` completed
 - [ ] Tokenizer ready: Check `/root/autodl-tmp/LlaSMol-EGFR-Final-exp3-chat-template-fast` exists
 - [ ] Dataset generated: Check `data/*.parquet` files exist
 - [ ] Reward function works: `python test_reward_function.py` passes

@@ -26,8 +26,11 @@ This setup implements DCPO reinforcement learning for generating EGFR inhibitor 
 # Install RDKit for molecular property calculations
 pip install rdkit
 
-# Install other dependencies
-pip install tensorboard
+# Install Wandb for experiment tracking
+pip install wandb
+
+# Login to Wandb (first time only)
+wandb login
 ```
 
 ### 2. Prepare Data
@@ -114,6 +117,10 @@ export TOTAL_EPOCHS=100
 export CHECKPOINT_SAVE="./ckpts/molecule_dcpo"
 export SAVE_FREQ=10
 export TEST_FREQ=5
+
+# Wandb project name
+export PROJECT_NAME="molecule_generation"
+export EXP_NAME="dcpo_egfr_1gpu"
 ```
 
 ### DCPO Hyperparameters
@@ -136,11 +143,12 @@ export LOSS_AGG_MODE="only-token-mean"
 
 ## 📊 Monitoring Training
 
-### Tensorboard
+### Wandb Dashboard
 
-```bash
-tensorboard --logdir ./ckpts/molecule_dcpo/runs
-```
+Training metrics are automatically logged to Wandb:
+1. Visit [https://wandb.ai](https://wandb.ai)
+2. Navigate to your project: `molecule_generation`
+3. View real-time metrics, generated molecules, and more
 
 ### Log Files
 
