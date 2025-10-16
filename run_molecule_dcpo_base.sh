@@ -21,7 +21,8 @@ ray stop --force 2>/dev/null || true
 # ============================================================================
 export VLLM_CONFIG_ROOT=${CHECKPOINT_SAVE}
 export VLLM_CACHE_ROOT=${CHECKPOINT_SAVE}
-export VLLM_ATTENTION_BACKEND=XFORMERS
+# Remove XFORMERS backend for V1 engine compatibility
+# export VLLM_ATTENTION_BACKEND=XFORMERS
 
 # ============================================================================
 # Network Interface (adjust according to your cluster)
@@ -227,9 +228,11 @@ if [ ${RANK} == 0 ]; then
     actor_rollout_ref.actor.policy_loss.loss_mode=${LOSS_MODE:-"dcpo"} \
     actor_rollout_ref.actor.loss_agg_mode=${loss_agg_mode} \
     actor_rollout_ref.actor.ulysses_sequence_parallel_size=${sp_size} \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.80 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.75 \
     actor_rollout_ref.rollout.tensor_model_parallel_size=${gen_tp} \
     actor_rollout_ref.rollout.enable_chunked_prefill=True \
+    actor_rollout_ref.rollout.disable_sliding_window=True \
+    actor_rollout_ref.rollout.enable_prefix_caching=False \
     actor_rollout_ref.rollout.max_num_batched_tokens=$((max_prompt_length + max_response_length)) \
     actor_rollout_ref.rollout.temperature=${temperature} \
     actor_rollout_ref.rollout.top_p=${top_p} \
