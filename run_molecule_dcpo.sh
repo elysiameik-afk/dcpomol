@@ -16,6 +16,9 @@ export RANK=${RANK:-0}
 export CHECKPOINT_SAVE=${CHECKPOINT_SAVE:-"./ckpts/molecule_dcpo"}
 export CHECKPOINT_LOAD=${CHECKPOINT_LOAD:-"/root/autodl-tmp"}
 
+# Create checkpoint directory if it doesn't exist
+mkdir -p ${CHECKPOINT_SAVE}
+
 # Clean up previous run
 ray stop --force
 # Note: Removed "kill all python" command to avoid killing terminal/jupyter/vscode processes
