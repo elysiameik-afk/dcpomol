@@ -37,9 +37,16 @@ done
 # ============================================================================
 # Model and Tokenizer Paths
 # ============================================================================
-# IMPORTANT: Use the tokenizer with chat_template
+# IMPORTANT: Copy tokenizer with chat_template to model directory
 export MODEL_PATH=${CHECKPOINT_LOAD}/LlaSMol-EGFR-Final-exp3
 export TOKENIZER_PATH=${CHECKPOINT_LOAD}/LlaSMol-EGFR-Final-exp3-chat-template-fast
+
+# Copy tokenizer files with chat_template to model directory
+echo "Copying tokenizer with chat_template to model directory..."
+cp -f ${TOKENIZER_PATH}/tokenizer.json ${MODEL_PATH}/ 2>/dev/null || true
+cp -f ${TOKENIZER_PATH}/tokenizer_config.json ${MODEL_PATH}/
+cp -f ${TOKENIZER_PATH}/chat_template.jinja ${MODEL_PATH}/ 2>/dev/null || true
+echo "Tokenizer files copied."
 
 # ============================================================================
 # Dataset Configuration
